@@ -1,5 +1,10 @@
 node {
   def app
+  
+  stage('checkout') {
+    deleteDir()
+    checkout scm  
+  }
 
   stage('maven build') {
     def maven = docker.image('maven:3.8.2-adoptopenjdk-11')
